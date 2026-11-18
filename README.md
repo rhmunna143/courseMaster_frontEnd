@@ -1,12 +1,16 @@
 # CourseMaster - Frontend
-Live Link: https://course-master4981.netlify.app/
 
-Video link: https://drive.google.com/file/d/1vjMrBxr0-7xqjxMX2EBEBw30D_av1pOu/view
+A modern E-learning platform frontend built with React 19, Redux Toolkit, and Tailwind CSS.
 
-A modern E-learning platform frontend built with React, Redux Toolkit, and Tailwind CSS.
+- **GitHub Repository**: [https://github.com/rhmunna143/courseMaster_frontEnd](https://github.com/rhmunna143/courseMaster_frontEnd)
+- **Backend Repository**: [https://github.com/rhmunna143/courseMaster_Backend](https://github.com/rhmunna143/courseMaster_Backend)
+- **Live Demo Link**: [https://course-master4981.netlify.app/](https://course-master4981.netlify.app/)
+- **Video Walkthrough Link**: [https://drive.google.com/file/d/1vjMrBxr0-7xqjxMX2EBEBw30D_av1pOu/view](https://drive.google.com/file/d/1vjMrBxr0-7xqjxMX2EBEBw30D_av1pOu/view)
+- **Quality Assurance & Bug Report**: [docs/bug_report_document.md](https://github.com/rhmunna143/courseMaster_frontEnd/blob/main/docs/bug_report_document.md)
 
-Admin email: admin@coursemaster.com
-Pass: admin123
+### Default Credentials
+- **Admin Email**: `admin@coursemaster.com` | **Password**: `admin123`
+- **Student Email**: `student@coursemaster.com` | **Password**: `student123`
 
 ## Project Name & Description
 
@@ -122,7 +126,7 @@ The frontend communicates with the backend API. All API endpoints are documented
 - **Quizzes**: `/api/quizzes/submit` (POST), `/api/quizzes/my` (GET), `/api/quizzes/stats` (GET)
 - **Admin**: `/api/admin/courses`, `/api/admin/enrollments`, `/api/admin/assignments`, `/api/admin/analytics`
 
-For complete API documentation with request/response formats, see [courseMaster_Backend/README.md](../courseMaster_Backend/README.md).
+For complete API documentation with request/response formats, see [courseMaster_Backend README](https://github.com/rhmunna143/courseMaster_Backend/blob/main/README.md).
 
 ## Development
 

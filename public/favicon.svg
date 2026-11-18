@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="cmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78A083" />
+      <stop offset="100%" stop-color="#50727B" />
+    </linearGradient>
+  </defs>
+  <!-- Background rounded squircle matching CourseMaster brand logo -->
+  <rect width="64" height="64" rx="16" fill="url(#cmGrad)" />
+  <!-- CourseMaster Graduation Cap -->
+  <g stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Diamond Cap Top -->
+    <polygon points="32,15 10,25 32,35 54,25" fill="#FFFFFF" stroke-width="2" />
+    <!-- Cap Underbody -->
+    <path d="M19 30.5V39.5C19 44.5 24.5 47.5 32 47.5C39.5 47.5 45 44.5 45 39.5V30.5" fill="none" stroke-width="3" />
+    <!-- Tassel -->
+    <line x1="48" y1="28" x2="48" y2="42" stroke-width="2.5" />
+    <circle cx="48" cy="44" r="2.5" fill="#FFFFFF" stroke-width="1" />
+  </g>
+</svg>
