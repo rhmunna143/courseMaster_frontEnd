@@ -19,6 +19,22 @@ export default function Login() {
         setForm({ email, password });
     };
 
+    const handleDirectLogin = async (email, password) => {
+        try {
+            setLoading(true);
+            setError(null);
+            localStorage.removeItem("dev_bypass");
+            const res = await loginUser({ email, password });
+            saveToken(res.data.token);
+            navigate(res.data.user?.role === "admin" ? "/admin" : "/student");
+            window.location.reload();
+        } catch (err) {
+            setError(err.response?.data?.message || "Login failed");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -26,6 +42,7 @@ export default function Login() {
             setError(null);
 
             const res = await loginUser(form);
+            localStorage.removeItem("dev_bypass");
             saveToken(res.data.token);
 
             navigate("/");
@@ -82,39 +99,27 @@ export default function Login() {
                             </button>
                         </div>
 
-                        {/* Dev Route Inspector Bypass */}
+                        {/* One-click Demo Login */}
                         <div className="pt-2 border-t border-base-300/80">
                             <p className="text-[11px] font-semibold text-base-content/70 mb-1.5 flex items-center justify-between">
-                                <span>🔓 Direct Login & Inspect Routes (Dev Bypass):</span>
+                                <span>⚡ 1-Click Fast Login (Real Auth):</span>
                             </p>
                             <div className="grid grid-cols-2 gap-2">
                                 <button
                                     type="button"
-                                    onClick={() => {
-                                        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYzFmMzdlNjYwMDZmMWRjYmI1YjUyNiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzkxMDk4NTg4fQ.4s3Ygh9GtTper2SB8byNILxPSxZ8y3pO-WyFupmQ0Ws";
-                                        localStorage.setItem("token", token);
-                                        localStorage.setItem("user_token", token);
-                                        localStorage.setItem("dev_bypass", "true");
-                                        navigate("/student");
-                                        window.location.reload();
-                                    }}
+                                    onClick={() => handleDirectLogin("student@coursemaster.com", "student123")}
                                     className="btn btn-xs btn-primary font-bold text-xs"
+                                    disabled={loading}
                                 >
-                                    🎓 Student Portal
+                                    🎓 Student Login
                                 </button>
                                 <button
                                     type="button"
-                                    onClick={() => {
-                                        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYzFmMzdlNjYwMDZmMWRjYmI1YjUyNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc5MTA5ODU4OH0.vL3Hj-fEGVbouM-cZ9RtMIpaCU5ugRwsNqaKyYdxdNY";
-                                        localStorage.setItem("token", token);
-                                        localStorage.setItem("user_token", token);
-                                        localStorage.setItem("dev_bypass", "true");
-                                        navigate("/admin");
-                                        window.location.reload();
-                                    }}
+                                    onClick={() => handleDirectLogin("admin@coursemaster.com", "admin123")}
                                     className="btn btn-xs btn-secondary font-bold text-xs"
+                                    disabled={loading}
                                 >
-                                    👑 Admin Portal
+                                    👑 Admin Login
                                 </button>
                             </div>
                         </div>
